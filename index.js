@@ -208,7 +208,7 @@ bot.on('text', async (ctx) => {
   }
 
   // ---- SPOT FLOW ----
-  if (state.step && state.step.startsWith('spot_')) {
+  if (state.step && state.step.startsWith('spot_') && state.step !== 'spot_confirm') {
     const stepIndex = parseInt(state.step.replace('spot_', ''));
     const currentStep = SPOT_STEPS[stepIndex];
     const key = currentStep.key;
@@ -247,7 +247,7 @@ bot.on('text', async (ctx) => {
   }
 
   // ---- FUTURES FLOW ----
-  if (state.step && state.step.startsWith('futures_')) {
+  if (state.step && state.step.startsWith('futures_') && state.step !== 'futures_confirm') {
     const stepIndex = parseInt(state.step.replace('futures_', ''));
     const currentStep = FUTURES_STEPS[stepIndex];
     const key = currentStep.key;
