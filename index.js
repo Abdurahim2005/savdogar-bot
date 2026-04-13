@@ -365,12 +365,12 @@ bot.on('text', async (ctx) => {
   if ((text === '📈 Spot kanali' || text === '⚡ Futures kanali') && state.step === 'channels_menu') {
     const chType = text === '📈 Spot kanali' ? 'spot' : 'futures';
     setState(userId, { step: 'awaiting_channel', channelType: chType });
-    return ctx.replyWithMarkdown(
-      `📢 *${text} ni ulash*\n\n` +
+    return ctx.reply(
+      `📢 ${text} ni ulash\n\n` +
       `Quyidagilardan birini bajaring:\n` +
-      `1️⃣ Kanal username ni yuboring _(misol: @mening_kanal)_\n` +
-      `2️⃣ Kanal ID sini yuboring _(misol: -1001234567890)_\n\n` +
-      `⚠️ *Muhim:* Bot kanalda *admin* bo'lishi kerak!\n` +
+      `1️⃣ Kanal username ni yuboring (misol: @mening_kanal)\n` +
+      `2️⃣ Kanal ID sini yuboring (misol: -1001234567890)\n\n` +
+      `Muhim: Bot kanalda ADMIN bo'lishi kerak!\n` +
       `Bot kanalga qo'shib, admin qilib, keyin username yuboring.`,
       Markup.keyboard([['🔙 Orqaga']]).resize()
     );
